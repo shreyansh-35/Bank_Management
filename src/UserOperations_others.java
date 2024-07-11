@@ -19,6 +19,7 @@ public class UserOperations_others {
 
         System.out.print("Enter your email: ");
         String email = scanner.nextLine();
+
         System.out.print("Enter your current password: ");
         String currentPassword = scanner.nextLine();
         currentPassword = vd.doHashing(currentPassword);
@@ -29,10 +30,16 @@ public class UserOperations_others {
         System.out.print("Enter confirm password: ");
         String confirmPassword = scanner.nextLine();
 
+        if(!vd.isValidPassword(newPassword)){
+            System.out.println("Passwords is Invalid. Try again.");
+            return;
+        }
+
         if (!Objects.equals(newPassword, confirmPassword)) {
             System.out.println("Both passwords are not matching. Try again.");
             return;
         }
+
         newPassword = vd.doHashing(newPassword);
 
         // Query to update password
