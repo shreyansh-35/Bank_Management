@@ -146,7 +146,7 @@ public class UserOperations {
                             String insertrecepientTransactionQuery = "INSERT INTO transactiontable (acc_no,credit_amt,debit_amt,curr_bal,created_at) VALUES (?, ?, 0,?, NOW())";
                             try {
                                 PreparedStatement preparedStatement = connection.prepareStatement(insertrecepientTransactionQuery);
-                                preparedStatement.setInt(1, accountNumber);
+                                preparedStatement.setInt(1, recipientAccountNumber);
                                 preparedStatement.setDouble(2, amount);
                                 preparedStatement.setDouble(3, recipientNewBalance);
                                 preparedStatement.executeUpdate();
@@ -170,7 +170,7 @@ public class UserOperations {
         }
     }
 
-    public void functions() {
+    public void functions() throws SQLException {
 
         Scanner sc = new Scanner(System.in);
 

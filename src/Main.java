@@ -1,16 +1,19 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Scanner;
+import java.io.File;
 
 public class Main {
 
-    // JDBC Connection
-    private static final String url = "jdbc:mysql://localhost:3306/bank_management";
-    private static final String userName = "root";
-    private static final String password = "Shreyansh@123";
-
     public static void main(String[] args) {
         try {
+            File file = new File("E:\\Bank Management System\\src\\DB_Details.txt");
+            Scanner obj = new Scanner(file);
+            // JDBC Connection
+            String url = obj.nextLine();
+            String userName = obj.nextLine();
+            String password = obj.nextLine();
+
             // establish connection
             Connection connection = DriverManager.getConnection(url, userName, password);
             Scanner sc = new Scanner(System.in);

@@ -53,30 +53,11 @@ public class UserOperations_others {
         }
     }
 
-    public void transaction_history() {
+    public void transaction_history() throws SQLException {
         String query1 = "SELECT trans_id, credit_amt, debit_amt, curr_bal, created_at " +
-                "FROM transactiontable WHERE acc_no = ? ";
-        try {
-            PreparedStatement preparedStatement = this.connection.prepareStatement(query1);
-            preparedStatement.setInt(1, accountNumber);
+                "FROM transactiontable WHERE acc_no = "+accountNumber;
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                int transactionId = resultSet.getInt("trans_id");
-                int creditAmount = resultSet.getInt("credit_amt");
-                int debitAmount = resultSet.getInt("debit_amt");
-                int currentBalance = resultSet.getInt("curr_bal");
-                String dateTime = resultSet.getString("created_at");
-
-                System.out.println("Transaction ID: " + transactionId);
-                System.out.println("Credited Amount: " + creditAmount);
-                System.out.println("Debited Amount: " + debitAmount);
-                System.out.println("Current Balance: " + currentBalance);
-                System.out.println("Time Stamp: " + dateTime);
-                System.out.println("----------");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        PrintTable pt = new PrintTable(query1,connection);
+        pt.print();
     }
 }

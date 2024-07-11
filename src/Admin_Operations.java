@@ -60,7 +60,7 @@ public class Admin_Operations {
         System.out.println("Enter account number: ");
         int choice1 = sc.nextInt();
         String checkQuery = "SELECT COUNT(*) FROM new_user WHERE acc_no = ?";
-        String query = "SELECT * FROM new_user WHERE acc_no = ?";
+        String query = "SELECT * FROM new_user WHERE acc_no = " + choice1;
         try {
             PreparedStatement checkStatement = this.connection.prepareStatement(checkQuery);
             checkStatement.setInt(1, choice1);
@@ -73,38 +73,14 @@ public class Admin_Operations {
                 return;
             }
 
-            PreparedStatement preparedStatement = this.connection.prepareStatement(query);
-            preparedStatement.setInt(1, choice1);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                int accNumber = resultSet.getInt("acc_no");
-                String userName = resultSet.getString("name");
-                String fatherName = resultSet.getString("father_name");
-                String email = resultSet.getString("email");
-                String aadhar = resultSet.getString("aadhar");
-                String phoneNum = resultSet.getString("phone_number");
-                String address = resultSet.getString("address");
-                int balance = resultSet.getInt("balance");
-                String status = resultSet.getString("status");
-
-                System.out.println("Account Number: " + accNumber);
-                System.out.println("User Name: " + userName);
-                System.out.println("Father Name: " + fatherName);
-                System.out.println("Email: " + email);
-                System.out.println("Aadhar Number: " + aadhar);
-                System.out.println("Phone Number: " + phoneNum);
-                System.out.println("Address: " + address);
-                System.out.println("Balance: " + balance);
-                System.out.println("Status: " + status);
-                System.out.println("----------");
-            }
+            PrintTable pt = new PrintTable(query, connection);
+            pt.print();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
-    public void functions() {
+        public void functions() throws SQLException {
         int choice = 0;
 
         while (choice != 6) {

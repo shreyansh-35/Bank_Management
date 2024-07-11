@@ -1,11 +1,6 @@
 import java.sql.Connection;
 import java.util.Scanner;
 import java.sql.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 public class Account {
     private Connection connection;
     private Scanner sc;

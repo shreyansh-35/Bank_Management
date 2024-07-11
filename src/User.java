@@ -17,7 +17,7 @@ public class User {
         this.sc = new Scanner(System.in);
     }
 
-    public String login() {
+    public String login() throws SQLException {
 
         System.out.print("Enter Account Number: ");
         int accountNumber = sc.nextInt();
