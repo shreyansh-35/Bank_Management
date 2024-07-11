@@ -1,9 +1,13 @@
+package implementations;
+
+import interfaces.UserOperationsInterface;
+
 import java.sql.Connection;
 import java.util.Objects;
 import java.util.Scanner;
 import java.sql.*;
 
-public class UserOperations {
+public class UserOperations implements UserOperationsInterface {
     private Connection connection;
     private int accountNumber;
 

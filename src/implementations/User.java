@@ -1,3 +1,7 @@
+package implementations;
+
+import interfaces.UserInterface;
+
 import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +11,7 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.io.File;
 
-public class User {
+public class User implements UserInterface {
 
     private Connection connection;
     public Scanner sc;
@@ -19,7 +23,7 @@ public class User {
 
     public String login() throws SQLException {
 
-        System.out.print("Enter Account Number: ");
+        System.out.print("Enter Implementations.Account Number: ");
         int accountNumber = sc.nextInt();
         sc.nextLine();
 

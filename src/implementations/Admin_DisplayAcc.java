@@ -1,9 +1,9 @@
+package implementations;
+
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Admin_DisplayAcc {
+public class Admin_DisplayAcc implements interfaces.Admin_DisplayAcc {
     private Connection connection;
 
     public Admin_DisplayAcc(Connection connection) {

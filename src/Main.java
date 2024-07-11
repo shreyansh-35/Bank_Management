@@ -1,3 +1,7 @@
+import db_connection.DatabaseConnection;
+import implementations.Account;
+import implementations.User;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Scanner;
@@ -7,15 +11,9 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            File file = new File("E:\\Bank Management System\\src\\DB_Details.txt");
-            Scanner obj = new Scanner(file);
-            // JDBC Connection
-            String url = obj.nextLine();
-            String userName = obj.nextLine();
-            String password = obj.nextLine();
+            DatabaseConnection dbConnection = new DatabaseConnection();
+            Connection connection = dbConnection.getConnection();
 
-            // establish connection
-            Connection connection = DriverManager.getConnection(url, userName, password);
             Scanner sc = new Scanner(System.in);
 
             // Creating objects for other classes

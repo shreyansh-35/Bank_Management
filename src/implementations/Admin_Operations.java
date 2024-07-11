@@ -1,10 +1,14 @@
+package implementations;
+
+import interfaces.Admin_OperationsInterface;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class Admin_Operations {
+public class Admin_Operations implements Admin_OperationsInterface {
     private Connection connection;
     private Scanner sc;
 
@@ -28,7 +32,7 @@ public class Admin_Operations {
 
             int count = checkResultSet.getInt(1);
             if (count == 0) {
-                System.out.println("User does not exist.");
+                System.out.println("Implementations.User does not exist.");
                 return;
             }
 

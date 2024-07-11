@@ -1,3 +1,5 @@
+package interfaces;
+
 import java.sql.SQLException;
 
 public interface DisplayInterface {

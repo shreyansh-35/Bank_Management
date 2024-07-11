@@ -1,3 +1,5 @@
+package implementations;
+
 import java.sql.Connection;
 import java.util.Scanner;
 import java.sql.*;
@@ -11,6 +13,7 @@ public class Account {
     Validation vd = new Validation();
 
     public void openAccount() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter Full Name: ");
         String userName = sc.nextLine();
         System.out.print("Enter Father's Name: ");
@@ -75,7 +78,7 @@ public class Account {
                 int accNo = rs.getInt(1);
                 if (accNo != -1) {
                     account_number =accNo;
-                    System.out.println("A/C can not be open, User already exists for this Aadhar number.");
+                    System.out.println("A/C can not be open, Implementations.User already exists for this Aadhar number.");
                     return;
                 }
             }

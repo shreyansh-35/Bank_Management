@@ -1,10 +1,14 @@
+package implementations;
+
+import interfaces.UserOperations_depositeInterface;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class UserOperations_deposite {
+public class UserOperations_deposite implements UserOperations_depositeInterface {
     private Connection connection;
     private int accountNumber;
 

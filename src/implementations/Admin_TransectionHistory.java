@@ -1,3 +1,5 @@
+package implementations;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +25,7 @@ public class Admin_TransectionHistory {
 
             int count = checkResultSet.getInt(1);
             if (count == 0) {
-                System.out.println("User does not exist.");
+                System.out.println("Implementations.User does not exist.");
                 return;
             }
 

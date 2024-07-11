@@ -1,9 +1,13 @@
+package implementations;
+
+import interfaces.ValidationInterface;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Validation {
+public class Validation implements ValidationInterface {
     public String doHashing(String password){
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");

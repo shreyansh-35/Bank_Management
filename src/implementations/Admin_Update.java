@@ -1,9 +1,13 @@
+package implementations;
+
+import interfaces.Admin_UpdateInterface;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class Admin_Update{
+public class Admin_Update implements Admin_UpdateInterface {
     private Connection connection;
     private Scanner sc;
 

@@ -1,11 +1,14 @@
+package implementations;
+
+import interfaces.UserOperations_othersInterface;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class UserOperations_others {
+public class UserOperations_others implements UserOperations_othersInterface {
     private Connection connection;
     private int accountNumber;
 

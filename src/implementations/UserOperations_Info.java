@@ -1,9 +1,8 @@
+package implementations;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserOperations_Info {
+public class UserOperations_Info{
     private Connection connection;
     private int accountNumber;
 
